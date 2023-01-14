@@ -27,7 +27,7 @@
 
                     <div class="todoBtn">
                     
-                        <button style="background:  #748ffc;" onclick="done(${num})">
+                        <button style="background:  #bac8ff;" onclick="done(${num})">
                             <i class='bx bx-check'></i>
                         </button>
                         
@@ -52,11 +52,11 @@
 
                     <div class="todoBtn">
 
-                        <button style="background:  #748ffc;" onclick="doneCancel(${num})">
+                        <button style="background: #bac8ff;" onclick="doneCancel(${num})">
                              <i class='bx bx-reset'></i>
                         </button>
 
-                        <button style="background:  #fa5252;" onclick="delete_list(${num})">
+                        <button style="background:  #ff8787;" onclick="delete_list(${num})">
                             <i class='bx bxs-trash'></i>
                         </button>
                     </div>
