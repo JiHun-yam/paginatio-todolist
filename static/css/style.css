@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #dbe4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    width: 50%;
+    height: 75%;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.app:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.list {
+    width: 90%;
+    height: 95%;
+    text-align: center;
+
+
+}
+
+.list .header {
+    width: 100%;
+    height: 20%;
+
+    padding-left: 20px;
+}
+
+
+.header h2 {
+    text-align: left;
+    color: #868e96;
+    padding-bottom: 10px;
+
+}
+
+.header div {
+    display: flex;
+}
+
+.header div input {
+    width: 80%;
+    height: 35px;
+    background: #eee;
+    border: none;
+    border-radius: 15px;
+    padding-left: 10px;
+
+}
+
+.todoAddBtn {
+    margin-left: 10px;
+    width: 15%;
+    border: none;
+    border-radius: 10px;
+    background: #edf2ff;
+    color: white;
+}
+
+
+
+
+/* #91a7ff �명뭼媛� �낅젰�섎㈃ 踰꾪듉 �� �댁깋�쇰줈 援먯껜 */
+
+
+
+
+
+/* Main  */
+.list .main {
+    width: 100%;
+    height: 70%;
+
+
+
+}
+
+/*  */
+.list .main .todolist {
+    width: 100%;
+    /* height �섏젙 �꾩슂 */
+    height: 18%;
+
+    display: flex;
+    align-items: center;
+    background: #eee;
+    margin-bottom: 5px;
+}
+
+.todolist .todoNum {
+    width: 10%;
+
+}
+
+.todolist .todoText {
+    width: 65%;
+    text-align: left;
+    padding-left: 10px;
+
+}
+
+.todolist .todoText p {
+    font-weight: bold;
+}
+
+.todolist .todoBtn {
+    width: 25%;
+}
+
+
+
+
+/* done delete 踰꾪듉 */
+.todolist .todoBtn button {
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.todolist .todoBtn button:hover {
+    transform: translateY(1.1);
+    transition: all 0.2s ease;
+
+}
+
+/* footer  */
+.list .footer {
+    width: 100%;
+    height: 10%;
+
+}
+
+.footer .footer-list {
+    width: 70%;
+    height: 100%;
+
+    padding-top: 20px;
+    margin: 0 auto;
+
+}
+
+.footer .footer-list button {
+    width: 11%;
+    height: 25px;
+    margin-left: 5px;
+    border: 1px solid #91a7ff;
+    border-radius: 25px;
+    background: white;
+
+}
+
+.footer .footer-list button a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+}
+
+/* �꾩옱�섏씠吏� �쒖떆�섍린  */
+.footer-list button .active {
+    padding: 0 19px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #91a7ff;
+    border-radius: 35px;
+
+
+}
+
+#my_skill {
+    width: 100%;
+    height: 50px;
+}
+
+.on {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+
+.btn_result {
+    background-color: #555;
+    color: #fff;
+}
+
+.btn_reset {
+    background-color: #ddd
+}
