@@ -12,8 +12,10 @@
           for (let i =0; i<row.length; i++){
             let num = row[i]['num'];
             let listText = row[i]['text'];
+            let done = row[i]['done']
 
-            let temp_html = `   <div class="todolist">
+              if(done == 0){
+                  let temp_html = `   <div class="todolist">
 
                     <div class="todoNum">
                         <span>${num}.</span>
@@ -25,17 +27,44 @@
 
                     <div class="todoBtn">
                     
-                        <button style="background:  #748ffc;">
+                        <button style="background:  #748ffc;" onclick="done(${num})">
                             <i class='bx bx-check'></i>
                         </button>
                         
+                        
+                    </div>
+
+                </div>`;
+            $("#todoList").append(temp_html)
+              }
+              //done = 1
+              else {
+                  let temp_html = `
+                       <div class="todolist done">
+
+                    <div class="todoNum">
+                        <span>${num}.</span>
+                    </div>
+
+                    <div class="todoText">
+                        <p>${listText}</p>
+                    </div>
+
+                    <div class="todoBtn">
+
+                        <button style="background:  #748ffc;" onclick="doneCancel(${num})">
+                             <i class='bx bx-reset'></i>
+                        </button>
+
                         <button style="background:  #fa5252;" onclick="delete_list(${num})">
                             <i class='bx bxs-trash'></i>
                         </button>
                     </div>
 
                 </div>`;
-            $("#todoList").append(temp_html)
+                  $("#todoList").append(temp_html)
+              }
+
 
           }
 
@@ -162,11 +191,12 @@ todoBtn.addEventListener('click', function () {
    //
     else {
         let text =todoInput.value;
+        let done = 0;
         $.ajax({
       type: "POST",
       url: "/add",
       data: {
-         text_give:text,
+         text_give:text, done_give: done
       },
       success: function (response) {
          alert(response["msg"]);
@@ -177,7 +207,30 @@ todoBtn.addEventListener('click', function () {
     }
 })
 
-
+// done 기능 성공기능
+function done(num) {
+            $.ajax({
+                type: "POST",
+                url: "/done",
+                data: { num_give: num },
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
+    //     done cancel 기능
+    function doneCancel(num) {
+            $.ajax({
+                type: "POST",
+                url: "/done/cancel",
+                data: { num_give: num },
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
 
 
     function  delete_list(num){
@@ -191,4 +244,5 @@ todoBtn.addEventListener('click', function () {
                         }
                     });
 }
+
 

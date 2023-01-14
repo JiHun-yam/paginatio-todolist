@@ -24,9 +24,11 @@ def add_list():
     text_receive = request.form['text_give']
     count = list(db.page.find({}, {'_id': False}))
     num = len(count) + 1
+    done_receive = request.form['done_give']
     doc = {
         'num': num,
         'text': text_receive,
+        'done': done_receive,
     }
 
     db.page.insert_one(doc)
@@ -40,11 +42,22 @@ def list_get():
     return jsonify({'page': page_list})
 
 # 완료기능
-# @app.route("/done", methods=["POST"])
-# def list_get():
-#     page_list = list(db.page.find({}, {'_id': False}))
-#     # page_list.reverse()
-#     return jsonify({'page': page_list})
+@app.route("/done", methods=["POST"])
+def done_post():
+    num_receive = request.form['num_give']
+    db.page.update_one({'num': int(num_receive)}, {'$set': {'done': 1}})
+    return jsonify({'msg': '할일 끝!'})
+
+@app.route("/done/cancel", methods=["POST"])
+def bucket_cancel():
+    num_receive = request.form['num_give']
+    db.page.update_one({'num': int(num_receive)}, {'$set': {'done': 0}})
+    return jsonify({'msg': '다시 도전!'})
+
+#
+
+
+
 
 # 삭제기능
 @app.route("/delete", methods=["POST"])

@@ -58,11 +58,11 @@ body {
 
 .header div input {
     width: 80%;
-    height: 35px;
+    height: 45px;
     background: #eee;
     border: none;
     border-radius: 15px;
-    padding-left: 10px;
+    padding-left: 50px;
 
 }
 
@@ -73,7 +73,9 @@ body {
     border-radius: 10px;
     background: #edf2ff;
     color: white;
+    cursor: pointer;
 }
+
 
 
 
@@ -138,6 +140,7 @@ body {
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .todolist .todoBtn button:hover {
@@ -207,4 +210,8 @@ body {
 
 .btn_reset {
     background-color: #ddd
+}
+.done{
+      opacity: 0.4;
+
 }
