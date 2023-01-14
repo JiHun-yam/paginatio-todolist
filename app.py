@@ -18,7 +18,7 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
-
+# 입력을 하면 값을 DB에 저장한다
 @app.route("/add", methods=["POST"])
 def add_list():
     text_receive = request.form['text_give']
@@ -32,15 +32,27 @@ def add_list():
     db.page.insert_one(doc)
     return jsonify({'msg': '저장완료!'})
 
-
+# DB에 가지고 있는 값을 보낸다
 @app.route("/show", methods=["GET"])
 def list_get():
     page_list = list(db.page.find({}, {'_id': False}))
     # page_list.reverse()
     return jsonify({'page': page_list})
 
+# 완료기능
+# @app.route("/done", methods=["POST"])
+# def list_get():
+#     page_list = list(db.page.find({}, {'_id': False}))
+#     # page_list.reverse()
+#     return jsonify({'page': page_list})
 
+# 삭제기능
+@app.route("/delete", methods=["POST"])
+def delete_list():
+    num_receive = request.form['num_give']
+    db.page.delete_one({'num': int(num_receive)})
 
+    return jsonify({'msg': '삭제완료'})
 
 
 

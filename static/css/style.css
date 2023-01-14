@@ -103,6 +103,8 @@ body {
     align-items: center;
     background: #eee;
     margin-bottom: 5px;
+    border-radius: 25px;
+
 }
 
 .todolist .todoNum {

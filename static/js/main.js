@@ -10,13 +10,13 @@
        success: function (response) {
           let row = response['page'];
           for (let i =0; i<row.length; i++){
-            let listNum = row[i]['num'];
+            let num = row[i]['num'];
             let listText = row[i]['text'];
 
             let temp_html = `   <div class="todolist">
 
                     <div class="todoNum">
-                        <span>${listNum}.</span>
+                        <span>${num}.</span>
                     </div>
 
                     <div class="todoText">
@@ -24,10 +24,12 @@
                     </div>
 
                     <div class="todoBtn">
+                    
                         <button style="background:  #748ffc;">
                             <i class='bx bx-check'></i>
                         </button>
-                        <button style="background:  #fa5252;">
+                        
+                        <button style="background:  #fa5252;" onclick="delete_list(${num})">
                             <i class='bx bxs-trash'></i>
                         </button>
                     </div>
@@ -177,4 +179,16 @@ todoBtn.addEventListener('click', function () {
 
 
 
+
+    function  delete_list(num){
+            $.ajax({
+                        type: "POST",
+                        url: "/delete",
+                        data: {num_give: num},
+                        success: function (response)
+                        {alert(response["msg"])
+                            window.location.reload()
+                        }
+                    });
+}
 
